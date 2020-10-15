@@ -4,12 +4,12 @@ function ValidateEmail($email)
    $pattern = '/^([0-9a-z]([-.\w]*[0-9a-z])*@(([0-9a-z])+([-\w]*[0-9a-z])*\.)+[a-z]{2,6})$/i';
    return preg_match($pattern, $email);
 }
-if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['formid']) && $_POST['formid'] == 'layoutgrid1')
+if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['formid']) && $_POST['formid'] == 'form1')
 {
    $mailto = 'laudarroux@hotmail.com';
    $mailfrom = isset($_POST['email']) ? $_POST['email'] : $mailto;
-   $subject = 'Query via website';
-   $message = 'Values submitted from web site form:';
+   $subject = 'Query';
+   $message = 'Form details :';
    $success_url = '';
    $error_url = '';
    $eol = "\n";
@@ -87,20 +87,30 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['formid']) && $_POST['f
 <html>
 <head>
 <meta charset="utf-8">
-<title>Test Page</title>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Query</title>
+<meta name="generator" content="Quick 'n Easy Web Builder Trial Version - http://www.quickandeasywebbuilder.com">
 <style>
+div#container
+{
+   width: 994px;
+   position: relative;
+   margin: 0 auto 0 auto;
+   text-align: left;
+}
 body
 {
-   background-color: #FFFFFF;
+   background-color: transparent;
    color: #000000;
    font-family: Arial;
    font-weight: normal;
    font-size: 13px;
    line-height: 1.1875;
    margin: 0;
-   padding: 0;
+   text-align: center;
 }
+</style>
+<link href="wb.validation.css" rel="stylesheet">
+<style>
 a
 {
    color: #0000FF;
@@ -119,158 +129,22 @@ a:hover
    color: #0000FF;
    text-decoration: underline;
 }
-#wb_LayoutGrid1
+#wb_Form1
 {
-   clear: both;
-   position: relative;
-   table-layout: fixed;
-   display: table;
-   text-align: center;
-   width: 100%;
-   background-color: transparent;
+   background-color: #FBFBFB;
    background-image: none;
    border: 0px solid #000000;
-   box-sizing: border-box;
-   margin: 0;
 }
-#LayoutGrid1
-{
-   box-sizing: border-box;
-   padding: 0px 15px 0px 15px;
-   margin-right: auto;
-   margin-left: auto;
-}
-#LayoutGrid1 > .row
-{
-   margin-right: -15px;
-   margin-left: -15px;
-}
-#LayoutGrid1 > .row > .col-1
-{
-   box-sizing: border-box;
-   font-size: 0px;
-   min-height: 1px;
-   padding-right: 15px;
-   padding-left: 15px;
-   position: relative;
-}
-#LayoutGrid1 > .row > .col-1
-{
-   float: left;
-}
-#LayoutGrid1 > .row > .col-1
-{
-   background-color: transparent;
-   background-image: none;
-   width: 100%;
-   text-align: left;
-}
-#LayoutGrid1:before,
-#LayoutGrid1:after,
-#LayoutGrid1 .row:before,
-#LayoutGrid1 .row:after
-{
-   display: table;
-   content: " ";
-}
-#LayoutGrid1:after,
-#LayoutGrid1 .row:after
-{
-   clear: both;
-}
-@media (max-width: 480px)
-{
-#LayoutGrid1 > .row > .col-1
-{
-   float: none;
-   width: 100% !important;
-}
-}
-#wb_LayoutGrid2
-{
-   clear: both;
-   position: relative;
-   table-layout: fixed;
-   display: table;
-   text-align: center;
-   width: 100%;
-   background-color: transparent;
-   background-image: none;
-   border: 0px solid #000000;
-   box-sizing: border-box;
-   margin: 0;
-}
-#LayoutGrid2
-{
-   box-sizing: border-box;
-   padding: 5px 15px 5px 15px;
-   margin-right: auto;
-   margin-left: auto;
-}
-#LayoutGrid2 > .row
-{
-   margin-right: -15px;
-   margin-left: -15px;
-}
-#LayoutGrid2 > .row > .col-1, #LayoutGrid2 > .row > .col-2
-{
-   box-sizing: border-box;
-   font-size: 0px;
-   min-height: 1px;
-   padding-right: 15px;
-   padding-left: 15px;
-   position: relative;
-}
-#LayoutGrid2 > .row > .col-1, #LayoutGrid2 > .row > .col-2
-{
-   float: left;
-}
-#LayoutGrid2 > .row > .col-1
-{
-   background-color: transparent;
-   background-image: none;
-   width: 25%;
-   text-align: left;
-}
-#LayoutGrid2 > .row > .col-2
-{
-   background-color: transparent;
-   background-image: none;
-   width: 75%;
-   text-align: left;
-}
-#LayoutGrid2:before,
-#LayoutGrid2:after,
-#LayoutGrid2 .row:before,
-#LayoutGrid2 .row:after
-{
-   display: table;
-   content: " ";
-}
-#LayoutGrid2:after,
-#LayoutGrid2 .row:after
-{
-   clear: both;
-}
-@media (max-width: 480px)
-{
-#LayoutGrid2 > .row > .col-1, #LayoutGrid2 > .row > .col-2
-{
-   float: none;
-   width: 100% !important;
-}
-}
-#Label1
+#Label2
 {
    border: 0px solid #CCCCCC;
    border-radius: 4px;
-   background-color: #FFFFFF;
+   background-color: transparent;
    background-image: none;
    color :#000000;
    font-family: Arial;
    font-weight: normal;
-   font-size: 13px;
-   box-sizing: border-box;
+   font-size: 20px;
    padding: 4px 4px 4px 4px;
    margin: 0;
    text-align: left;
@@ -285,9 +159,8 @@ a:hover
    color :#000000;
    font-family: Arial;
    font-weight: normal;
-   font-size: 13px;
-   box-sizing: border-box;
-   line-height: 15px;
+   font-size: 17px;
+   line-height: 35px;
    padding: 4px 4px 4px 4px;
    margin: 0;
    text-align: left;
@@ -300,91 +173,16 @@ a:hover
    box-shadow: inset 0px 1px 1px rgba(0,0,0,0.075), 0px 0px 8px rgba(102, 175, 233, 0.60);
    outline: 0;
 }
-#wb_LayoutGrid3
-{
-   clear: both;
-   position: relative;
-   table-layout: fixed;
-   display: table;
-   text-align: center;
-   width: 100%;
-   background-color: transparent;
-   background-image: none;
-   border: 0px solid #000000;
-   box-sizing: border-box;
-   margin: 0;
-}
-#LayoutGrid3
-{
-   box-sizing: border-box;
-   padding: 5px 15px 5px 15px;
-   margin-right: auto;
-   margin-left: auto;
-}
-#LayoutGrid3 > .row
-{
-   margin-right: -15px;
-   margin-left: -15px;
-}
-#LayoutGrid3 > .row > .col-1, #LayoutGrid3 > .row > .col-2
-{
-   box-sizing: border-box;
-   font-size: 0px;
-   min-height: 1px;
-   padding-right: 15px;
-   padding-left: 15px;
-   position: relative;
-}
-#LayoutGrid3 > .row > .col-1, #LayoutGrid3 > .row > .col-2
-{
-   float: left;
-}
-#LayoutGrid3 > .row > .col-1
-{
-   background-color: transparent;
-   background-image: none;
-   width: 25%;
-   text-align: left;
-}
-#LayoutGrid3 > .row > .col-2
-{
-   background-color: transparent;
-   background-image: none;
-   width: 75%;
-   text-align: left;
-}
-#LayoutGrid3:before,
-#LayoutGrid3:after,
-#LayoutGrid3 .row:before,
-#LayoutGrid3 .row:after
-{
-   display: table;
-   content: " ";
-}
-#LayoutGrid3:after,
-#LayoutGrid3 .row:after
-{
-   clear: both;
-}
-@media (max-width: 480px)
-{
-#LayoutGrid3 > .row > .col-1, #LayoutGrid3 > .row > .col-2
-{
-   float: none;
-   width: 100% !important;
-}
-}
-#Label2
+#Label4
 {
    border: 0px solid #CCCCCC;
    border-radius: 4px;
-   background-color: #FFFFFF;
+   background-color: transparent;
    background-image: none;
    color :#000000;
    font-family: Arial;
    font-weight: normal;
-   font-size: 13px;
-   box-sizing: border-box;
+   font-size: 20px;
    padding: 4px 4px 4px 4px;
    margin: 0;
    text-align: left;
@@ -399,9 +197,8 @@ a:hover
    color :#000000;
    font-family: Arial;
    font-weight: normal;
-   font-size: 13px;
-   box-sizing: border-box;
-   line-height: 15px;
+   font-size: 17px;
+   line-height: 30px;
    padding: 4px 4px 4px 4px;
    margin: 0;
    text-align: left;
@@ -414,181 +211,54 @@ a:hover
    box-shadow: inset 0px 1px 1px rgba(0,0,0,0.075), 0px 0px 8px rgba(102, 175, 233, 0.60);
    outline: 0;
 }
-#wb_LayoutGrid4
-{
-   clear: both;
-   position: relative;
-   table-layout: fixed;
-   display: table;
-   text-align: center;
-   width: 100%;
-   background-color: transparent;
-   background-image: none;
-   border: 0px solid #000000;
-   box-sizing: border-box;
-   margin: 0;
-}
-#LayoutGrid4
-{
-   box-sizing: border-box;
-   padding: 5px 15px 5px 15px;
-   margin-right: auto;
-   margin-left: auto;
-}
-#LayoutGrid4 > .row
-{
-   margin-right: -15px;
-   margin-left: -15px;
-}
-#LayoutGrid4 > .row > .col-1, #LayoutGrid4 > .row > .col-2
-{
-   box-sizing: border-box;
-   font-size: 0px;
-   min-height: 1px;
-   padding-right: 15px;
-   padding-left: 15px;
-   position: relative;
-}
-#LayoutGrid4 > .row > .col-1, #LayoutGrid4 > .row > .col-2
-{
-   float: left;
-}
-#LayoutGrid4 > .row > .col-1
-{
-   background-color: transparent;
-   background-image: none;
-   width: 25%;
-   text-align: left;
-}
-#LayoutGrid4 > .row > .col-2
-{
-   background-color: transparent;
-   background-image: none;
-   width: 75%;
-   text-align: left;
-}
-#LayoutGrid4:before,
-#LayoutGrid4:after,
-#LayoutGrid4 .row:before,
-#LayoutGrid4 .row:after
-{
-   display: table;
-   content: " ";
-}
-#LayoutGrid4:after,
-#LayoutGrid4 .row:after
-{
-   clear: both;
-}
-@media (max-width: 480px)
-{
-#LayoutGrid4 > .row > .col-1, #LayoutGrid4 > .row > .col-2
-{
-   float: none;
-   width: 100% !important;
-}
-}
-#Label3
+#Label6
 {
    border: 0px solid #CCCCCC;
    border-radius: 4px;
-   background-color: #FFFFFF;
+   background-color: transparent;
    background-image: none;
    color :#000000;
    font-family: Arial;
    font-weight: normal;
-   font-size: 13px;
-   box-sizing: border-box;
+   font-size: 20px;
    padding: 4px 4px 4px 4px;
    margin: 0;
    text-align: left;
    vertical-align: top;
 }
-#wb_LayoutGrid5
+#Editbox3
 {
-   clear: both;
-   position: relative;
-   table-layout: fixed;
-   display: table;
-   text-align: center;
-   width: 100%;
-   background-color: transparent;
-   background-image: none;
-   border: 0px solid #000000;
-   box-sizing: border-box;
-   margin: 0;
-}
-#LayoutGrid5
-{
-   box-sizing: border-box;
-   padding: 5px 15px 5px 15px;
-   margin-right: auto;
-   margin-left: auto;
-}
-#LayoutGrid5 > .row
-{
-   margin-right: -15px;
-   margin-left: -15px;
-}
-#LayoutGrid5 > .row > .col-1, #LayoutGrid5 > .row > .col-2
-{
-   box-sizing: border-box;
-   font-size: 0px;
-   min-height: 1px;
-   padding-right: 15px;
-   padding-left: 15px;
-   position: relative;
-}
-#LayoutGrid5 > .row > .col-1, #LayoutGrid5 > .row > .col-2
-{
-   float: left;
-}
-#LayoutGrid5 > .row > .col-1
-{
-   background-color: transparent;
-   background-image: none;
-   width: 25%;
-   text-align: left;
-}
-#LayoutGrid5 > .row > .col-2
-{
-   background-color: transparent;
-   background-image: none;
-   width: 75%;
-   text-align: left;
-}
-#LayoutGrid5:before,
-#LayoutGrid5:after,
-#LayoutGrid5 .row:before,
-#LayoutGrid5 .row:after
-{
-   display: table;
-   content: " ";
-}
-#LayoutGrid5:after,
-#LayoutGrid5 .row:after
-{
-   clear: both;
-}
-@media (max-width: 480px)
-{
-#LayoutGrid5 > .row > .col-1, #LayoutGrid5 > .row > .col-2
-{
-   float: none;
-   width: 100% !important;
-}
-}
-#Label4
-{
-   border: 0px solid #CCCCCC;
+   border: 1px solid #CCCCCC;
    border-radius: 4px;
    background-color: #FFFFFF;
    background-image: none;
    color :#000000;
    font-family: Arial;
    font-weight: normal;
-   font-size: 13px;
-   box-sizing: border-box;
+   font-size: 17px;
+   line-height: 30px;
+   padding: 4px 4px 4px 4px;
+   margin: 0;
+   text-align: left;
+}
+#Editbox3:focus
+{
+   border-color: #66AFE9;
+   -webkit-box-shadow: inset 0px 1px 1px rgba(0,0,0,0.075), 0px 0px 8px rgba(102, 175, 233, 0.60);
+   -moz-box-shadow: inset 0px 1px 1px rgba(0,0,0,0.075), 0px 0px 8px rgba(102, 175, 233, 0.60);
+   box-shadow: inset 0px 1px 1px rgba(0,0,0,0.075), 0px 0px 8px rgba(102, 175, 233, 0.60);
+   outline: 0;
+}
+#Label8
+{
+   border: 0px solid #CCCCCC;
+   border-radius: 4px;
+   background-color: transparent;
+   background-image: none;
+   color :#000000;
+   font-family: Arial;
+   font-weight: normal;
+   font-size: 20px;
    padding: 4px 4px 4px 4px;
    margin: 0;
    text-align: left;
@@ -600,11 +270,10 @@ a:hover
    border-radius: 4px;
    background-color: #FFFFFF;
    background-image: none;
-   color :#555555;
+   color :#000000;
    font-family: Arial;
    font-weight: normal;
-   font-size: 13px;
-   box-sizing: border-box;
+   font-size: 17px;
    padding: 4px 4px 4px 4px;
    margin: 0;
    text-align: left;
@@ -618,169 +287,220 @@ a:hover
    box-shadow: inset 0px 1px 1px rgba(0,0,0,0.075), 0px 0px 8px rgba(102, 175, 233, 0.60);
    outline: 0;
 }
-#wb_LayoutGrid6
+#TextArea1::placeholder
 {
-   clear: both;
-   position: relative;
-   table-layout: fixed;
-   display: table;
-   text-align: center;
-   width: 100%;
+   color: #A9A9A9;
+   opacity: 1;
+}
+#TextArea1::-ms-input-placeholder
+{
+   color: #A9A9A9;
+}
+#Label9
+{
+   border: 0px solid #CCCCCC;
+   border-radius: 4px;
    background-color: transparent;
    background-image: none;
-   border: 0px solid #000000;
-   box-sizing: border-box;
+   color :#000000;
+   font-family: Arial;
+   font-weight: normal;
+   font-size: 20px;
+   padding: 4px 4px 4px 4px;
+   margin: 0;
+   text-align: left;
+   vertical-align: top;
+}
+#wb_Checkbox1
+{
    margin: 0;
 }
-#LayoutGrid6
+#wb_Checkbox1, #wb_Checkbox1 *, #wb_Checkbox1 *::before, #wb_Checkbox1 *::after
 {
    box-sizing: border-box;
-   padding: 5px 15px 5px 15px;
-   margin-right: auto;
-   margin-left: auto;
 }
-#LayoutGrid6 > .row
+#wb_Checkbox1 input[type='checkbox']
 {
-   margin-right: -15px;
-   margin-left: -15px;
+   position: absolute;
+   padding: 0;
+   margin: 0;
+   opacity: 0;
+   z-index: 1;
+   width: 20px;
+   height: 20px;
+   left: 0;
+   top: 0;
 }
-#LayoutGrid6 > .row > .col-1, #LayoutGrid6 > .row > .col-2
+#wb_Checkbox1 label
 {
-   box-sizing: border-box;
-   font-size: 0px;
-   min-height: 1px;
-   padding-right: 15px;
-   padding-left: 15px;
-   position: relative;
+   display: inline-block;
+   vertical-align: middle;
+   position: absolute;
+   left: 0;
+   top: 0;
+   width: 0;
+   height: 0;
+   padding: 0;
 }
-#LayoutGrid6 > .row > .col-1, #LayoutGrid6 > .row > .col-2
+#wb_Checkbox1 label::before
 {
-   float: left;
+   content: "";
+   display: inline-block;
+   position: absolute;
+   width: 20px;
+   height: 20px;
+   left: 0;
+   top: 0;
+   background-color: #FFFFFF;
+   border: 1px solid #CCCCCC;
+   border-radius: 4px;
 }
-#LayoutGrid6 > .row > .col-1
+#wb_Checkbox1 label::after
 {
-   background-color: transparent;
-   background-image: none;
-   width: 25%;
-   text-align: left;
+   display: inline-block;
+   position: absolute;
+   width: 20px;
+   height: 20px;
+   left: 0;
+   top: 0;
+   padding: 0;
+   text-align: center;
+   line-height: 20px;
 }
-#LayoutGrid6 > .row > .col-2
+#wb_Checkbox1 input[type='checkbox']:checked + label::after
 {
-   background-color: transparent;
-   background-image: none;
-   width: 75%;
-   text-align: left;
-}
-#LayoutGrid6:before,
-#LayoutGrid6:after,
-#LayoutGrid6 .row:before,
-#LayoutGrid6 .row:after
-{
-   display: table;
    content: " ";
+   background: url('data:image/svg+xml,%3Csvg%20height%3D%2220%22%20width%3D%2220%22%20version%3D%221.1%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Cg%20style%3D%22fill%3A%23FFFFFF%22%20transform%3D%22scale%280.0112%29%22%3E%0D%0A%3Cpath%20transform%3D%22rotate%28180%29%20scale%28-1%2C1%29%20translate%280%2C-1536%29%22%20d%3D%22M1671%20970q0%20-40%20-28%20-68l-724%20-724l-136%20-136q-28%20-28%20-68%20-28t-68%2028l-136%20136l-362%20362q-28%2028%20-28%2068t28%2068l136%20136q28%2028%2068%2028t68%20-28l294%20-295l656%20657q28%2028%2068%2028t68%20-28l136%20-136q28%20-28%2028%20-68z%22%2F%3E%3C%2Fg%3E%3C%2Fsvg%3E') no-repeat center center;
+   background-size: 80% 80%
 }
-#LayoutGrid6:after,
-#LayoutGrid6 .row:after
+#wb_Checkbox1 input[type='checkbox']:checked + label::before
 {
-   clear: both;
+   background-color: #3370B7;
+   background-image: none;
+   border-color: #3370B7;
 }
-@media (max-width: 480px)
+#wb_Checkbox1 input[type='checkbox']:focus + label::before
 {
-#LayoutGrid6 > .row > .col-1, #LayoutGrid6 > .row > .col-2
-{
-   float: none;
-   width: 100% !important;
-}
+   outline: thin dotted;
 }
 #Button1
 {
    border: 1px solid #2E6DA4;
    border-radius: 4px;
-   background-color: #3370B7;
+   background-color: #4169E1;
    background-image: none;
    color: #FFFFFF;
    font-family: Arial;
    font-weight: normal;
-   font-size: 13px;
+   font-size: 20px;
    -webkit-appearance: none;
    margin: 0;
 }
 </style>
-   <meta charset="utf-8">
-    <title>Contact Form</title>
-
-    <!-- CSS only -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
-
-    <!-- JS, Popper.js, and jQuery -->
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+<script src="js/jquery-1.12.4.min.js"></script>
+<script src="js/wb.validation.min.js"></script>
+<script>
+function submitInquery()
+{
+   var regexp;
+   var Editbox1 = document.getElementById('Editbox1');
+   if (!(Editbox1.disabled || Editbox1.style.display === 'none' || Editbox1.style.visibility === 'hidden'))
+   {
+      if (Editbox1.value == "")
+      {
+         alert("Name required");
+         Editbox1.focus();
+         return false;
+      }
+   }
+   var Editbox3 = document.getElementById('Editbox3');
+   if (!(Editbox3.disabled || Editbox3.style.display === 'none' || Editbox3.style.visibility === 'hidden'))
+   {
+      regexp = /^[-+]?\d*\.?\d*$/;
+      if (Editbox3.value.length != 0 && !regexp.test(Editbox3.value))
+      {
+         alert("Enter a valid number");
+         Editbox3.focus();
+         return false;
+      }
+   }
+   var TextArea1 = document.getElementById('TextArea1');
+   if (!(TextArea1.disabled || TextArea1.style.display === 'none' || TextArea1.style.visibility === 'hidden'))
+   {
+      if (TextArea1.value == "")
+      {
+         alert("Enter message");
+         TextArea1.focus();
+         return false;
+      }
+   }
+   return true;
+}
+</script>
+<script>
+$(document).ready(function()
+{
+   $("#Form1").submit(function(event)
+   {
+      var isValid = $.validate.form(this);
+      return isValid;
+   });
+   $("#Editbox2").validate(
+   {
+      required: true,
+      type: 'email',
+      color_text: '#000000',
+      color_hint: '#00FF00',
+      color_error: '#FF0000',
+      color_border: '#808080',
+      nohint: false,
+      font_family: 'Arial',
+      font_size: '13px',
+      position: 'topleft',
+      offsetx: 0,
+      offsety: 0,
+      effect: 'none',
+      error_text: 'Enter a valid email address'
+   });
+   $("#Checkbox1").validate(
+   {
+      required: true,
+      type: 'checkbox',
+      color_text: '#000000',
+      color_hint: '#00FF00',
+      color_error: '#FF0000',
+      color_border: '#808080',
+      nohint: false,
+      font_family: 'Arial',
+      font_size: '13px',
+      position: 'topleft',
+      offsetx: 0,
+      offsety: 0,
+      effect: 'none',
+      error_text: 'Show consent'
+   });
+});
+</script>
 </head>
 <body>
-<div id="wb_LayoutGrid1">
-<form name="inquiries" method="post" action="<?php echo basename(__FILE__); ?>" enctype="multipart/form-data" id="LayoutGrid1">
-<input type="hidden" name="formid" value="layoutgrid1">
-<div class="row">
-<div class="col-1">
-<div id="wb_LayoutGrid2">
-<div id="LayoutGrid2">
-<div class="row">
-<div class="col-1">
-<label for="Editbox1" id="Label1" style="display:block;width:100%;line-height:13px;z-index:0;"><h3>Name</h3></label>
-   <br>
-<input type="text" id="Editbox1" style="display:block;width: 100%;height:25px;z-index:1;" placeholder="Enter name here" name="name" value="" spellcheck="false">
-</div>
-</div>
-</div>
-</div>
-<div id="wb_LayoutGrid3">
-<div id="LayoutGrid3">
-<div class="row">
-<div class="col-1">
-<label for="Editbox2" id="Label2" style="display:block;width:100%;line-height:13px;z-index:2;"><h3>Email</h3></label>
-   <br>
-<input type="text" id="Editbox2" style="display:block;width: 100%;height:25px;z-index:3;" name="email" placeholder="Enter your email here" value="" spellcheck="false">
-</div>
-</div>
-</div>
-</div>
-<div id="wb_LayoutGrid4">
-<div id="LayoutGrid4">
-<div class="row">
-<div class="col-1">
-<label for="" id="Label3" style="display:block;width:100%;line-height:13px;z-index:4;">Query ?</label>
-</div>
-<div class="col-2">
-</div>
-</div>
-</div>
-</div>
-<div id="wb_LayoutGrid5">
-<div id="LayoutGrid5">
-<div class="row">
-<div class="col-1">
-<label for="TextArea1" id="Label4" style="display:block;width:100%;line-height:13px;z-index:5;"><h3>Please tell us a little about how we can help</h3></label>
-<br>
-<textarea name="comments" id="TextArea1" style="display:block;width: 100%;;height:100px;z-index:6;" placeholder="Enter your message here" rows="1" cols="1" spellcheck="false"></textarea>
-</div>
-</div>
-</div>
-</div>
-<div id="wb_LayoutGrid6">
-<div id="LayoutGrid6">
-<div class="row">
-<div class="col-1">
-</div>
-<div class="col-2">
-<input type="submit" id="Button1" name="" value="Submit" style="display:inline-block;width:96px;height:25px;z-index:7;">
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
+<div id="container">
+<div id="wb_Form1" style="position:absolute;left:187px;top:60px;width:555px;height:405px;z-index:9;">
+<form name="Inquery" method="post" action="<?php echo basename(__FILE__); ?>" enctype="multipart/form-data" id="Form1" onsubmit="return submitInquery()">
+<input type="hidden" name="formid" value="form1">
+<label for="Editbox1" id="Label2" style="position:absolute;left:10px;top:4px;width:312pxheight:17px;line-height:17px;z-index:0;">Name</label>
+<input type="text" id="Editbox1" style="position:absolute;left:12px;top:33px;width:502px;height:35px;z-index:1;" name="Editbox1" value="" spellcheck="false" placeholder="Enter name here">
+<label for="Editbox2" id="Label4" style="position:absolute;left:10px;top:90px;width:312pxheight:17px;line-height:17px;z-index:2;">Email</label>
+<input type="text" id="Editbox2" style="position:absolute;left:13px;top:117px;width:502px;height:30px;z-index:3;" name="Editbox2" value="" spellcheck="false" placeholder="Enter your email here">
+<input type="text" id="Editbox3" style="position:absolute;left:12px;top:193px;width:503px;height:30px;z-index:4;" name="Editbox3" value="" spellcheck="false" placeholder="Enter your number here">
+<label for="TextArea1" id="Label8" style="position:absolute;left:12px;top:240px;width:388pxheight:17px;line-height:17px;z-index:5;">Please tell us a little about how we can help</label>
+<textarea name="TextArea1" id="TextArea1" style="position:absolute;left:15px;top:272px;width:500px;height:90px;z-index:6;" rows="1" cols="1" spellcheck="false" placeholder="Enter your message here"></textarea>
+<label for="Editbox3" id="Label6" style="position:absolute;left:10px;top:165px;width:312pxheight:17px;line-height:17px;z-index:7;">Your Number</label>
+<div id="wb_Checkbox1" style="position:absolute;left:15px;top:382px;width:20px;height:20px;z-index:8;">
+<input type="checkbox" id="Checkbox1" name="" value="on" checked style="position:absolute;left:0;top:0;"><label for="Checkbox1"></label></div>
 </form>
+</div>
+<label for="Checkbox1" id="Label9" style="position:absolute;left:228px;top:441px;width:475pxheight:17px;line-height:17px;z-index:10;">I consent to Spirit of Care collecting my personal data</label>
+<input type="submit" id="Button1" name="" value="Submit" style="position:absolute;left:202px;top:485px;width:96px;height:51px;z-index:11;">
 </div>
 </body>
 </html>
