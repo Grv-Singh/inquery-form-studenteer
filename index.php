@@ -706,6 +706,16 @@ a:hover
    margin: 0;
 }
 </style>
+   <meta charset="utf-8">
+    <title>Contact Form</title>
+
+    <!-- CSS only -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+
+    <!-- JS, Popper.js, and jQuery -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
 </head>
 <body>
 <div id="wb_LayoutGrid1">
@@ -717,10 +727,9 @@ a:hover
 <div id="LayoutGrid2">
 <div class="row">
 <div class="col-1">
-<label for="Editbox1" id="Label1" style="display:block;width:100%;line-height:13px;z-index:0;">Name:</label>
-</div>
-<div class="col-2">
-<input type="text" id="Editbox1" style="display:block;width: 100%;height:25px;z-index:1;" name="name" value="" spellcheck="false">
+<label for="Editbox1" id="Label1" style="display:block;width:100%;line-height:13px;z-index:0;"><h3>Name</h3></label>
+   <br>
+<input type="text" id="Editbox1" style="display:block;width: 100%;height:25px;z-index:1;" placeholder="Enter name here" name="name" value="" spellcheck="false">
 </div>
 </div>
 </div>
@@ -729,10 +738,9 @@ a:hover
 <div id="LayoutGrid3">
 <div class="row">
 <div class="col-1">
-<label for="Editbox2" id="Label2" style="display:block;width:100%;line-height:13px;z-index:2;">Email:</label>
-</div>
-<div class="col-2">
-<input type="text" id="Editbox2" style="display:block;width: 100%;height:25px;z-index:3;" name="email" value="" spellcheck="false">
+<label for="Editbox2" id="Label2" style="display:block;width:100%;line-height:13px;z-index:2;"><h3>Email</h3></label>
+   <br>
+<input type="text" id="Editbox2" style="display:block;width: 100%;height:25px;z-index:3;" name="email" placeholder="Enter your email here" value="" spellcheck="false">
 </div>
 </div>
 </div>
@@ -752,10 +760,9 @@ a:hover
 <div id="LayoutGrid5">
 <div class="row">
 <div class="col-1">
-<label for="TextArea1" id="Label4" style="display:block;width:100%;line-height:13px;z-index:5;">Message:</label>
-</div>
-<div class="col-2">
-<textarea name="comments" id="TextArea1" style="display:block;width: 100%;;height:100px;z-index:6;" rows="1" cols="1" spellcheck="false"></textarea>
+<label for="TextArea1" id="Label4" style="display:block;width:100%;line-height:13px;z-index:5;"><h3>Please tell us a little about how we can help</h3></label>
+<br>
+<textarea name="comments" id="TextArea1" style="display:block;width: 100%;;height:100px;z-index:6;" placeholder="Enter your message here" rows="1" cols="1" spellcheck="false"></textarea>
 </div>
 </div>
 </div>
@@ -766,7 +773,7 @@ a:hover
 <div class="col-1">
 </div>
 <div class="col-2">
-<input type="submit" id="Button1" name="" value="Send" style="display:inline-block;width:96px;height:25px;z-index:7;">
+<input type="submit" id="Button1" name="" value="Submit" style="display:inline-block;width:96px;height:25px;z-index:7;">
 </div>
 </div>
 </div>
